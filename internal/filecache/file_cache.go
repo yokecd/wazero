@@ -1,8 +1,10 @@
 package filecache
 
 import (
+	"compress/gzip"
 	"encoding/hex"
 	"errors"
+	"fmt"
 	"io"
 	"os"
 	"path"
@@ -27,7 +29,7 @@ type fileCache struct {
 }
 
 type fileReadCloser struct {
-	*os.File
+	io.ReadCloser
 	fc *fileCache
 }
 
@@ -48,19 +50,26 @@ func (fc *fileCache) Get(key Key) (content io.ReadCloser, ok bool, err error) {
 	f, err := os.Open(fc.path(key))
 	if errors.Is(err, os.ErrNotExist) {
 		return nil, false, nil
-	} else if err != nil {
-		return nil, false, err
-	} else {
-		// Unlock is done inside the content.Close() at the call site.
-		unlock = nil
-		return &fileReadCloser{File: f, fc: fc}, true, nil
 	}
+	if err != nil {
+		return nil, false, err
+	}
+
+	// Unlock is done inside the content.Close() at the call site.
+	unlock = nil
+
+	gr, err := gzip.NewReader(f)
+	if err != nil {
+		return nil, false, fmt.Errorf("cache corrupted: expected gzip: %w", err)
+	}
+
+	return &fileReadCloser{ReadCloser: gr, fc: fc}, true, nil
 }
 
 // Close wraps the os.File Close to release the read lock on fileCache.
 func (f *fileReadCloser) Close() (err error) {
 	defer f.fc.mux.RUnlock()
-	err = f.File.Close()
+	err = f.ReadCloser.Close()
 	return
 }
 
@@ -81,7 +90,14 @@ func (fc *fileCache) Add(key Key, content io.Reader) (err error) {
 		}
 	}()
 	defer file.Close()
-	if _, err = io.Copy(file, content); err != nil {
+
+	gw := gzip.NewWriter(file)
+	defer gw.Close()
+
+	if _, err = io.Copy(gw, content); err != nil {
+		return
+	}
+	if err = gw.Close(); err != nil {
 		return
 	}
 	if err = file.Sync(); err != nil {
