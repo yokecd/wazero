@@ -3,12 +3,12 @@ package frontend
 import (
 	"testing"
 
-	"github.com/tetratelabs/wazero/api"
-	"github.com/tetratelabs/wazero/internal/engine/wazevo/ssa"
-	"github.com/tetratelabs/wazero/internal/engine/wazevo/testcases"
-	"github.com/tetratelabs/wazero/internal/engine/wazevo/wazevoapi"
-	"github.com/tetratelabs/wazero/internal/testing/require"
-	"github.com/tetratelabs/wazero/internal/wasm"
+	"github.com/yokecd/wazero/api"
+	"github.com/yokecd/wazero/internal/engine/wazevo/ssa"
+	"github.com/yokecd/wazero/internal/engine/wazevo/testcases"
+	"github.com/yokecd/wazero/internal/engine/wazevo/wazevoapi"
+	"github.com/yokecd/wazero/internal/testing/require"
+	"github.com/yokecd/wazero/internal/wasm"
 )
 
 func TestCompiler_LowerToSSA(t *testing.T) {

@@ -4,11 +4,11 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/tetratelabs/wazero/api"
-	"github.com/tetratelabs/wazero/internal/gojs/custom"
-	"github.com/tetratelabs/wazero/internal/gojs/goarch"
-	"github.com/tetratelabs/wazero/internal/gojs/goos"
-	"github.com/tetratelabs/wazero/sys"
+	"github.com/yokecd/wazero/api"
+	"github.com/yokecd/wazero/internal/gojs/custom"
+	"github.com/yokecd/wazero/internal/gojs/goarch"
+	"github.com/yokecd/wazero/internal/gojs/goos"
+	"github.com/yokecd/wazero/sys"
 )
 
 // FinalizeRef implements js.finalizeRef, which is used as a

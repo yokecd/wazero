@@ -8,10 +8,10 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/tetratelabs/wazero/experimental/sys"
-	"github.com/tetratelabs/wazero/internal/fstest"
-	"github.com/tetratelabs/wazero/internal/sysfs"
-	"github.com/tetratelabs/wazero/internal/testing/require"
+	"github.com/yokecd/wazero/experimental/sys"
+	"github.com/yokecd/wazero/internal/fstest"
+	"github.com/yokecd/wazero/internal/sysfs"
+	"github.com/yokecd/wazero/internal/testing/require"
 )
 
 func TestFSFileReaddir(t *testing.T) {

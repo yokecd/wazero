@@ -5,12 +5,12 @@ import (
 	"testing"
 	"unsafe"
 
-	"github.com/tetratelabs/wazero/internal/asm"
-	"github.com/tetratelabs/wazero/internal/asm/amd64"
-	"github.com/tetratelabs/wazero/internal/platform"
-	"github.com/tetratelabs/wazero/internal/testing/require"
-	"github.com/tetratelabs/wazero/internal/wasm"
-	"github.com/tetratelabs/wazero/internal/wazeroir"
+	"github.com/yokecd/wazero/internal/asm"
+	"github.com/yokecd/wazero/internal/asm/amd64"
+	"github.com/yokecd/wazero/internal/platform"
+	"github.com/yokecd/wazero/internal/testing/require"
+	"github.com/yokecd/wazero/internal/wasm"
+	"github.com/yokecd/wazero/internal/wazeroir"
 )
 
 // TestAmd64Compiler_indirectCallWithTargetOnCallingConvReg is the regression test for #526.

@@ -6,9 +6,9 @@ import (
 	"os"
 	"runtime"
 
-	experimentalsys "github.com/tetratelabs/wazero/experimental/sys"
-	"github.com/tetratelabs/wazero/internal/fsapi"
-	"github.com/tetratelabs/wazero/sys"
+	experimentalsys "github.com/yokecd/wazero/experimental/sys"
+	"github.com/yokecd/wazero/internal/fsapi"
+	"github.com/yokecd/wazero/sys"
 )
 
 func newOsFile(path string, flag experimentalsys.Oflag, perm fs.FileMode, f *os.File) fsapi.File {

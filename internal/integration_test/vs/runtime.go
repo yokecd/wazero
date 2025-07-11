@@ -5,10 +5,10 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/tetratelabs/wazero"
-	"github.com/tetratelabs/wazero/api"
-	"github.com/tetratelabs/wazero/imports/wasi_snapshot_preview1"
-	"github.com/tetratelabs/wazero/internal/wasm"
+	"github.com/yokecd/wazero"
+	"github.com/yokecd/wazero/api"
+	"github.com/yokecd/wazero/imports/wasi_snapshot_preview1"
+	"github.com/yokecd/wazero/internal/wasm"
 )
 
 type RuntimeConfig struct {

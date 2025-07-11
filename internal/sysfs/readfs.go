@@ -3,7 +3,7 @@ package sysfs
 import (
 	"io/fs"
 
-	experimentalsys "github.com/tetratelabs/wazero/experimental/sys"
+	experimentalsys "github.com/yokecd/wazero/experimental/sys"
 )
 
 type ReadFS struct {

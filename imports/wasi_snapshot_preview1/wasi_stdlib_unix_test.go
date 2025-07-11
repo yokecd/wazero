@@ -14,11 +14,11 @@ import (
 	"syscall"
 	"testing"
 
-	"github.com/tetratelabs/wazero"
-	"github.com/tetratelabs/wazero/api"
-	"github.com/tetratelabs/wazero/imports/wasi_snapshot_preview1"
-	"github.com/tetratelabs/wazero/internal/testing/require"
-	"github.com/tetratelabs/wazero/sys"
+	"github.com/yokecd/wazero"
+	"github.com/yokecd/wazero/api"
+	"github.com/yokecd/wazero/imports/wasi_snapshot_preview1"
+	"github.com/yokecd/wazero/internal/testing/require"
+	"github.com/yokecd/wazero/sys"
 )
 
 func Test_NonblockingFile(t *testing.T) {

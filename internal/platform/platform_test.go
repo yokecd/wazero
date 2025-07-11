@@ -4,7 +4,7 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/tetratelabs/wazero/internal/testing/require"
+	"github.com/yokecd/wazero/internal/testing/require"
 )
 
 func Test_archRequirementsVerified(t *testing.T) {

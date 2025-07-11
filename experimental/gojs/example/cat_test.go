@@ -7,8 +7,8 @@ import (
 	"os/exec"
 	"testing"
 
-	"github.com/tetratelabs/wazero/internal/testing/maintester"
-	"github.com/tetratelabs/wazero/internal/testing/require"
+	"github.com/yokecd/wazero/internal/testing/maintester"
+	"github.com/yokecd/wazero/internal/testing/require"
 )
 
 // Test_main ensures the following will work:

@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/tetratelabs/wazero/api"
-	"github.com/tetratelabs/wazero/experimental/sys"
-	"github.com/tetratelabs/wazero/internal/gojs/custom"
-	"github.com/tetratelabs/wazero/internal/gojs/goarch"
-	"github.com/tetratelabs/wazero/internal/wasm"
+	"github.com/yokecd/wazero/api"
+	"github.com/yokecd/wazero/experimental/sys"
+	"github.com/yokecd/wazero/internal/gojs/custom"
+	"github.com/yokecd/wazero/internal/gojs/goarch"
+	"github.com/yokecd/wazero/internal/wasm"
 )
 
 // Debug has unknown use, so stubbed.

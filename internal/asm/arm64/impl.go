@@ -5,7 +5,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/tetratelabs/wazero/internal/asm"
+	"github.com/yokecd/wazero/internal/asm"
 )
 
 type nodeImpl struct {

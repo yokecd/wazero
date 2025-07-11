@@ -7,13 +7,13 @@ import (
 	"reflect"
 	"unsafe"
 
-	"github.com/tetratelabs/wazero/api"
-	"github.com/tetratelabs/wazero/experimental"
-	"github.com/tetratelabs/wazero/internal/engine/wazevo/wazevoapi"
-	"github.com/tetratelabs/wazero/internal/internalapi"
-	"github.com/tetratelabs/wazero/internal/wasm"
-	"github.com/tetratelabs/wazero/internal/wasmdebug"
-	"github.com/tetratelabs/wazero/internal/wasmruntime"
+	"github.com/yokecd/wazero/api"
+	"github.com/yokecd/wazero/experimental"
+	"github.com/yokecd/wazero/internal/engine/wazevo/wazevoapi"
+	"github.com/yokecd/wazero/internal/internalapi"
+	"github.com/yokecd/wazero/internal/wasm"
+	"github.com/yokecd/wazero/internal/wasmdebug"
+	"github.com/yokecd/wazero/internal/wasmruntime"
 )
 
 type (

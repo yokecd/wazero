@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/tetratelabs/wazero/experimental/sys"
-	"github.com/tetratelabs/wazero/internal/testing/require"
+	"github.com/yokecd/wazero/experimental/sys"
+	"github.com/yokecd/wazero/internal/testing/require"
 )
 
 func TestPoll_Windows(t *testing.T) {

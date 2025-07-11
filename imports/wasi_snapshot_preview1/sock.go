@@ -3,12 +3,12 @@ package wasi_snapshot_preview1
 import (
 	"context"
 
-	"github.com/tetratelabs/wazero/api"
-	"github.com/tetratelabs/wazero/experimental/sys"
-	socketapi "github.com/tetratelabs/wazero/internal/sock"
-	"github.com/tetratelabs/wazero/internal/sysfs"
-	"github.com/tetratelabs/wazero/internal/wasip1"
-	"github.com/tetratelabs/wazero/internal/wasm"
+	"github.com/yokecd/wazero/api"
+	"github.com/yokecd/wazero/experimental/sys"
+	socketapi "github.com/yokecd/wazero/internal/sock"
+	"github.com/yokecd/wazero/internal/sysfs"
+	"github.com/yokecd/wazero/internal/wasip1"
+	"github.com/yokecd/wazero/internal/wasm"
 )
 
 // sockAccept is the WASI function named SockAcceptName which accepts a new

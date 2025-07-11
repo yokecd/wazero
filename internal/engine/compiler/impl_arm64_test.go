@@ -4,11 +4,11 @@ import (
 	"testing"
 	"unsafe"
 
-	"github.com/tetratelabs/wazero/internal/asm"
-	arm64 "github.com/tetratelabs/wazero/internal/asm/arm64"
-	"github.com/tetratelabs/wazero/internal/testing/require"
-	"github.com/tetratelabs/wazero/internal/wasm"
-	"github.com/tetratelabs/wazero/internal/wazeroir"
+	"github.com/yokecd/wazero/internal/asm"
+	arm64 "github.com/yokecd/wazero/internal/asm/arm64"
+	"github.com/yokecd/wazero/internal/testing/require"
+	"github.com/yokecd/wazero/internal/wasm"
+	"github.com/yokecd/wazero/internal/wazeroir"
 )
 
 // TestArm64Compiler_indirectCallWithTargetOnCallingConvReg is the regression test for #526.
@@ -236,7 +236,7 @@ func TestArm64Compiler_getSavedTemporaryLocationStack(t *testing.T) {
 	})
 }
 
-// https://github.com/tetratelabs/wazero/issues/1522
+// https://github.com/yokecd/wazero/issues/1522
 func TestArm64Compiler_LargeTrapOffsets(t *testing.T) {
 	env := newCompilerEnvironment()
 	compiler := env.requireNewCompiler(t, &wasm.FunctionType{}, newCompiler, &wazeroir.CompilationResult{

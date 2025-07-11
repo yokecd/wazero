@@ -3,10 +3,10 @@ package wasi_snapshot_preview1
 import (
 	"context"
 
-	"github.com/tetratelabs/wazero/api"
-	"github.com/tetratelabs/wazero/internal/wasip1"
-	"github.com/tetratelabs/wazero/internal/wasm"
-	"github.com/tetratelabs/wazero/sys"
+	"github.com/yokecd/wazero/api"
+	"github.com/yokecd/wazero/internal/wasip1"
+	"github.com/yokecd/wazero/internal/wasm"
+	"github.com/yokecd/wazero/sys"
 )
 
 // procExit is the WASI function named ProcExitName that terminates the

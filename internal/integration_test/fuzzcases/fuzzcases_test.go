@@ -8,13 +8,13 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/tetratelabs/wazero"
-	"github.com/tetratelabs/wazero/api"
-	"github.com/tetratelabs/wazero/experimental/opt"
-	"github.com/tetratelabs/wazero/internal/platform"
-	"github.com/tetratelabs/wazero/internal/testing/binaryencoding"
-	"github.com/tetratelabs/wazero/internal/testing/require"
-	"github.com/tetratelabs/wazero/internal/wasm"
+	"github.com/yokecd/wazero"
+	"github.com/yokecd/wazero/api"
+	"github.com/yokecd/wazero/experimental/opt"
+	"github.com/yokecd/wazero/internal/platform"
+	"github.com/yokecd/wazero/internal/testing/binaryencoding"
+	"github.com/yokecd/wazero/internal/testing/require"
+	"github.com/yokecd/wazero/internal/wasm"
 )
 
 var ctx = context.Background()

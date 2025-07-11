@@ -5,11 +5,11 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/tetratelabs/wazero"
-	"github.com/tetratelabs/wazero/api"
-	"github.com/tetratelabs/wazero/experimental/opt"
-	"github.com/tetratelabs/wazero/internal/integration_test/spectest"
-	"github.com/tetratelabs/wazero/internal/platform"
+	"github.com/yokecd/wazero"
+	"github.com/yokecd/wazero/api"
+	"github.com/yokecd/wazero/experimental/opt"
+	"github.com/yokecd/wazero/internal/integration_test/spectest"
+	"github.com/yokecd/wazero/internal/platform"
 )
 
 const enabledFeatures = api.CoreFeaturesV2

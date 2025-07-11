@@ -1,7 +1,6 @@
-module github.com/tetratelabs/wazero
+module github.com/yokecd/wazero
 
-// Floor Go version of wazero (current - 2)
-go 1.19
+go 1.24
 
 // All the beta tags are retracted and replaced with "pre" to prevent users
 // from accidentally upgrading into the broken beta 1.

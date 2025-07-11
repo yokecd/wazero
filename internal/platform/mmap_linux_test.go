@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/tetratelabs/wazero/internal/testing/require"
+	"github.com/yokecd/wazero/internal/testing/require"
 )
 
 func TestHugePageConfigs(t *testing.T) {

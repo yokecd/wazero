@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/tetratelabs/wazero/internal/asm"
-	"github.com/tetratelabs/wazero/internal/testing/require"
+	"github.com/yokecd/wazero/internal/asm"
+	"github.com/yokecd/wazero/internal/testing/require"
 )
 
 func TestAssemblerImpl_EncodeRelativeJump(t *testing.T) {

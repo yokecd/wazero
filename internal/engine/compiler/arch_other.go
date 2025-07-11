@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"runtime"
 
-	"github.com/tetratelabs/wazero/internal/asm"
+	"github.com/yokecd/wazero/internal/asm"
 )
 
 // archContext is empty on an unsupported architecture.

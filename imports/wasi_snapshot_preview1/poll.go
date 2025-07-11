@@ -4,12 +4,12 @@ import (
 	"context"
 	"time"
 
-	"github.com/tetratelabs/wazero/api"
-	"github.com/tetratelabs/wazero/experimental/sys"
-	"github.com/tetratelabs/wazero/internal/fsapi"
-	internalsys "github.com/tetratelabs/wazero/internal/sys"
-	"github.com/tetratelabs/wazero/internal/wasip1"
-	"github.com/tetratelabs/wazero/internal/wasm"
+	"github.com/yokecd/wazero/api"
+	"github.com/yokecd/wazero/experimental/sys"
+	"github.com/yokecd/wazero/internal/fsapi"
+	internalsys "github.com/yokecd/wazero/internal/sys"
+	"github.com/yokecd/wazero/internal/wasip1"
+	"github.com/yokecd/wazero/internal/wasm"
 )
 
 // pollOneoff is the WASI function named PollOneoffName that concurrently

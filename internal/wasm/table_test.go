@@ -4,9 +4,9 @@ import (
 	"math"
 	"testing"
 
-	"github.com/tetratelabs/wazero/api"
-	"github.com/tetratelabs/wazero/internal/leb128"
-	"github.com/tetratelabs/wazero/internal/testing/require"
+	"github.com/yokecd/wazero/api"
+	"github.com/yokecd/wazero/internal/leb128"
+	"github.com/yokecd/wazero/internal/testing/require"
 )
 
 // Test_ElementInitNullReference_valid ensures it is actually safe to use ElementInitNullReference

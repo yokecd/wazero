@@ -9,10 +9,10 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/tetratelabs/wazero/internal/asm"
-	"github.com/tetratelabs/wazero/internal/asm/arm64"
-	"github.com/tetratelabs/wazero/internal/wasm"
-	"github.com/tetratelabs/wazero/internal/wazeroir"
+	"github.com/yokecd/wazero/internal/asm"
+	"github.com/yokecd/wazero/internal/asm/arm64"
+	"github.com/yokecd/wazero/internal/wasm"
+	"github.com/yokecd/wazero/internal/wazeroir"
 )
 
 type arm64Compiler struct {

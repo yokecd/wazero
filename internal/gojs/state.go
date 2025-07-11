@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/tetratelabs/wazero/api"
-	"github.com/tetratelabs/wazero/internal/gojs/config"
-	"github.com/tetratelabs/wazero/internal/gojs/goos"
-	"github.com/tetratelabs/wazero/internal/gojs/values"
+	"github.com/yokecd/wazero/api"
+	"github.com/yokecd/wazero/internal/gojs/config"
+	"github.com/yokecd/wazero/internal/gojs/goos"
+	"github.com/yokecd/wazero/internal/gojs/values"
 )
 
 func NewState(config *config.Config) *State {

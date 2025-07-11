@@ -4,9 +4,9 @@ import (
 	"context"
 	"testing"
 
-	"github.com/tetratelabs/wazero/api"
-	"github.com/tetratelabs/wazero/experimental"
-	"github.com/tetratelabs/wazero/internal/wasm"
+	"github.com/yokecd/wazero/api"
+	"github.com/yokecd/wazero/experimental"
+	"github.com/yokecd/wazero/internal/wasm"
 )
 
 func BenchmarkCallEngine_builtinFunctionFunctionListener(b *testing.B) {

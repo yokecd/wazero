@@ -7,11 +7,11 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/tetratelabs/wazero"
-	"github.com/tetratelabs/wazero/experimental"
-	"github.com/tetratelabs/wazero/experimental/logging"
-	"github.com/tetratelabs/wazero/internal/gojs/config"
-	"github.com/tetratelabs/wazero/internal/testing/require"
+	"github.com/yokecd/wazero"
+	"github.com/yokecd/wazero/experimental"
+	"github.com/yokecd/wazero/experimental/logging"
+	"github.com/yokecd/wazero/internal/gojs/config"
+	"github.com/yokecd/wazero/internal/testing/require"
 )
 
 func Test_exit(t *testing.T) {

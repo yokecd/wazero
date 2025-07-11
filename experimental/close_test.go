@@ -4,9 +4,9 @@ import (
 	"context"
 	"testing"
 
-	"github.com/tetratelabs/wazero/experimental"
-	"github.com/tetratelabs/wazero/internal/close"
-	"github.com/tetratelabs/wazero/internal/testing/require"
+	"github.com/yokecd/wazero/experimental"
+	"github.com/yokecd/wazero/internal/close"
+	"github.com/yokecd/wazero/internal/testing/require"
 )
 
 // testCtx is an arbitrary, non-default context. Non-nil also prevents linter errors.

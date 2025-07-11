@@ -6,11 +6,11 @@ import (
 	"math"
 	"strings"
 
-	"github.com/tetratelabs/wazero/api"
-	"github.com/tetratelabs/wazero/internal/engine/wazevo/ssa"
-	"github.com/tetratelabs/wazero/internal/engine/wazevo/wazevoapi"
-	"github.com/tetratelabs/wazero/internal/leb128"
-	"github.com/tetratelabs/wazero/internal/wasm"
+	"github.com/yokecd/wazero/api"
+	"github.com/yokecd/wazero/internal/engine/wazevo/ssa"
+	"github.com/yokecd/wazero/internal/engine/wazevo/wazevoapi"
+	"github.com/yokecd/wazero/internal/leb128"
+	"github.com/yokecd/wazero/internal/wasm"
 )
 
 type (

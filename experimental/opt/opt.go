@@ -3,7 +3,7 @@ package opt
 import (
 	"runtime"
 
-	"github.com/tetratelabs/wazero"
+	"github.com/yokecd/wazero"
 )
 
 type enabler interface {

@@ -7,8 +7,8 @@ import (
 	"reflect"
 	"unsafe"
 
-	"github.com/tetratelabs/wazero/api"
-	"github.com/tetratelabs/wazero/internal/internalapi"
+	"github.com/yokecd/wazero/api"
+	"github.com/yokecd/wazero/internal/internalapi"
 )
 
 const (

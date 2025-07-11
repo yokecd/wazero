@@ -1,13 +1,13 @@
 package proxy
 
 import (
-	"github.com/tetratelabs/wazero"
-	"github.com/tetratelabs/wazero/api"
-	"github.com/tetratelabs/wazero/experimental"
-	"github.com/tetratelabs/wazero/experimental/logging"
-	"github.com/tetratelabs/wazero/internal/leb128"
-	"github.com/tetratelabs/wazero/internal/testing/binaryencoding"
-	"github.com/tetratelabs/wazero/internal/wasm"
+	"github.com/yokecd/wazero"
+	"github.com/yokecd/wazero/api"
+	"github.com/yokecd/wazero/experimental"
+	"github.com/yokecd/wazero/experimental/logging"
+	"github.com/yokecd/wazero/internal/leb128"
+	"github.com/yokecd/wazero/internal/testing/binaryencoding"
+	"github.com/yokecd/wazero/internal/wasm"
 )
 
 const proxyModuleName = "internal/testing/proxy/proxy.go"

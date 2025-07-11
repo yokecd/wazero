@@ -7,9 +7,9 @@ import (
 	"syscall"
 	"unsafe"
 
-	"github.com/tetratelabs/wazero/experimental/sys"
-	"github.com/tetratelabs/wazero/internal/fsapi"
-	socketapi "github.com/tetratelabs/wazero/internal/sock"
+	"github.com/yokecd/wazero/experimental/sys"
+	"github.com/yokecd/wazero/internal/fsapi"
+	socketapi "github.com/yokecd/wazero/internal/sock"
 )
 
 const (

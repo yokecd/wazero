@@ -3,7 +3,7 @@ package sys
 import (
 	"io/fs"
 
-	"github.com/tetratelabs/wazero/sys"
+	"github.com/yokecd/wazero/sys"
 )
 
 // UnimplementedFS is an FS that returns ENOSYS for all functions,
