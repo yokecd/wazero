@@ -269,15 +269,9 @@ func deserializeCompiledModule(wazeroVersion string, reader io.ReadCloser) (cm *
 // readUint64 strictly reads an uint64 in little-endian byte order, using the
 // given array as a buffer. This returns io.EOF if less than 8 bytes were read.
 func readUint64(reader io.Reader, b *[8]byte) (uint64, error) {
-	s := b[0:8]
-	n, err := reader.Read(s)
-	if err != nil {
+	if _, err := io.ReadFull(reader, b[:]); err != nil {
 		return 0, err
-	} else if n < 8 { // more strict than reader.Read
-		return 0, io.EOF
 	}
-
-	// Read the u64 from the underlying buffer.
-	ret := binary.LittleEndian.Uint64(s)
+	ret := binary.LittleEndian.Uint64(b[:])
 	return ret, nil
 }
