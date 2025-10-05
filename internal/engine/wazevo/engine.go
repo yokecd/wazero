@@ -279,6 +279,7 @@ func (e *engine) compileModule(ctx context.Context, module *wasm.Module, listene
 			ssaBuilder := ssa.NewBuilder()
 			machine := newMachine()
 			fe := frontend.NewFrontendCompiler(module, ssaBuilder, &cm.offsets, ensureTermination, withListener, needSourceInfo)
+			be := backend.NewCompiler(ctx, machine, ssaBuilder)
 
 			for {
 				// Get a stable reference to the outer context.
@@ -307,8 +308,6 @@ func (e *engine) compileModule(ctx context.Context, module *wasm.Module, listene
 					}
 					ctx = wazevoapi.SetCurrentFunctionName(ctx, i, fmt.Sprintf("[%d/%d]%s", i, len(module.CodeSection)-1, name))
 				}
-
-				be := backend.NewCompiler(ctx, machine, ssaBuilder)
 
 				needListener := len(listeners) > 0 && listeners[i] != nil
 
