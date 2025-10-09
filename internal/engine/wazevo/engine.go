@@ -257,8 +257,6 @@ func (e *engine) compileModule(ctx context.Context, module *wasm.Module, listene
 			be := backend.NewCompiler(ctx, machine, ssaBuilder)
 
 			for {
-				// Get a stable reference to the outer context.
-				ctx := ctx
 				if err := ctx.Err(); err != nil {
 					// Compilation canceled!
 					return
@@ -275,18 +273,22 @@ func (e *engine) compileModule(ctx context.Context, module *wasm.Module, listene
 
 				fidx := wasm.Index(i + importedFns)
 
+				// The iteration ctx may have properties specific to the current local wasm function we are about to compile.
+				// Copy the function's root context as we do not want modify it beyond the scope of this iteration.
+				iterationCtx := ctx
+
 				if wazevoapi.NeedFunctionNameInContext {
 					def := module.FunctionDefinition(fidx)
 					name := def.DebugName()
 					if len(def.ExportNames()) > 0 {
 						name = def.ExportNames()[0]
 					}
-					ctx = wazevoapi.SetCurrentFunctionName(ctx, i, fmt.Sprintf("[%d/%d]%s", i, len(module.CodeSection)-1, name))
+					iterationCtx = wazevoapi.SetCurrentFunctionName(iterationCtx, i, fmt.Sprintf("[%d/%d]%s", i, len(module.CodeSection)-1, name))
 				}
 
 				needListener := len(listeners) > 0 && listeners[i] != nil
 
-				body, relsPerFunc, err := e.compileLocalWasmFunction(ctx, module, wasm.Index(i), fe, ssaBuilder, be, needListener)
+				body, relsPerFunc, err := e.compileLocalWasmFunction(iterationCtx, module, wasm.Index(i), fe, ssaBuilder, be, needListener)
 				if err != nil {
 					cancel(fmt.Errorf("compile function %d/%d: %v", i, len(module.CodeSection)-1, err))
 					return
