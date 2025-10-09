@@ -135,9 +135,8 @@ func VerifyOrSetDeterministicCompilationContextValue(ctx context.Context, scope 
 	fn := ctx.Value(currentFunctionNameKey{}).(string)
 	key := fn + ": " + scope
 	verifierCtx := ctx.Value(verifierStateContextKey{}).(*verifierState)
-	oldValue, ok := verifierCtx.values.Load(key)
-	if !ok {
-		verifierCtx.values.Store(key, newValue)
+	oldValue, loaded := verifierCtx.values.LoadOrStore(key, newValue)
+	if !loaded {
 		return
 	}
 	if oldValue != newValue {
