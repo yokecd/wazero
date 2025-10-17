@@ -288,7 +288,6 @@ func (c *compiler) Init() {
 	c.tmpVals = c.tmpVals[:0]
 	c.ssaTypeOfVRegID = c.ssaTypeOfVRegID[:0]
 	c.buf = c.buf[:0]
-	c.abis = c.abis[:0]
 	c.relocations = c.relocations[:0]
 	c.sourceOffsets = c.sourceOffsets[:0]
 }
