@@ -184,7 +184,9 @@ func (c *compiler) Compile(ctx context.Context) ([]byte, []RelocationInfo, error
 	if wazevoapi.DeterministicCompilationVerifierEnabled {
 		wazevoapi.VerifyOrSetDeterministicCompilationContextValue(ctx, "After Finalization", c.Format())
 	}
-	return c.buf, c.relocations, nil
+	relsCopy := make([]RelocationInfo, len(c.relocations))
+	copy(relsCopy, c.relocations)
+	return c.buf, relsCopy, nil
 }
 
 // RegAlloc implements Compiler.RegAlloc.
@@ -287,9 +289,8 @@ func (c *compiler) Init() {
 	c.ssaTypeOfVRegID = c.ssaTypeOfVRegID[:0]
 	c.buf = c.buf[:0]
 	c.abis = c.abis[:0]
-	// important! relocations & sourceOffsets must be nil and canot have a 0 length slice reused.
-	c.relocations = nil
-	c.sourceOffsets = nil
+	c.relocations = c.relocations[:0]
+	c.sourceOffsets = c.sourceOffsets[:0]
 }
 
 // ValueDefinition implements Compiler.ValueDefinition.
@@ -364,7 +365,9 @@ func (c *compiler) AddSourceOffsetInfo(executableOffset int64, sourceOffset ssa.
 
 // SourceOffsetInfo implements Compiler.SourceOffsetInfo.
 func (c *compiler) SourceOffsetInfo() []SourceOffsetInfo {
-	return c.sourceOffsets
+	result := make([]SourceOffsetInfo, len(c.sourceOffsets))
+	copy(result, c.sourceOffsets)
+	return result
 }
 
 // AddRelocationInfo implements Compiler.AddRelocationInfo.
