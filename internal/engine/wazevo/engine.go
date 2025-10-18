@@ -319,10 +319,12 @@ func (e *engine) compileModule(ctx context.Context, module *wasm.Module, listene
 					return
 				}
 				compiledFuncs[i] = CompiledLocalFuncResult{
-					Body:             body,
-					RelsPerFunc:      relsPerFunc,
-					IDX:              fidx,
-					SourceOffsetInfo: be.SourceOffsetInfo(),
+					IDX:  fidx,
+					Body: body,
+					// These slices are internal to the backend compiler and since we are going to buffer them instead
+					// of process them immediately we need to copy the memory.
+					RelsPerFunc:      copySlice(relsPerFunc),
+					SourceOffsetInfo: copySlice(be.SourceOffsetInfo()),
 				}
 			}
 		}()
@@ -334,9 +336,16 @@ func (e *engine) compileModule(ctx context.Context, module *wasm.Module, listene
 		return nil, err
 	}
 
-	for i := range module.CodeSection {
-		fn := compiledFuncs[i]
+	var offsetSize int
+	if needSourceInfo {
+		for _, fn := range compiledFuncs {
+			offsetSize += 1 + len(fn.SourceOffsetInfo)
+		}
+		cm.sourceMap.executableOffsets = make([]uintptr, 0, offsetSize)
+		cm.sourceMap.wasmBinaryOffsets = make([]uint64, 0, offsetSize)
+	}
 
+	for i, fn := range compiledFuncs {
 		// Align 16-bytes boundary.
 		totalSize = (totalSize + 15) &^ 15
 		cm.functionOffsets[i] = totalSize
@@ -897,4 +906,13 @@ func (cm *compiledModule) getSourceOffset(pc uintptr) uint64 {
 		return 0
 	}
 	return cm.sourceMap.wasmBinaryOffsets[index]
+}
+
+func copySlice[S ~[]E, E any](slice S) S {
+	if slice == nil {
+		return nil
+	}
+	clone := make(S, len(slice))
+	copy(clone, slice)
+	return clone
 }
