@@ -17,8 +17,7 @@ func NewCompiler(ctx context.Context, mach Machine, builder ssa.Builder) Compile
 func newCompiler(_ context.Context, mach Machine, builder ssa.Builder) *compiler {
 	argResultInts, argResultFloats := mach.ArgsResultsRegs()
 	c := &compiler{
-		mach:            mach,
-		ssaBuilder:      builder,
+		mach: mach, ssaBuilder: builder,
 		nextVRegID:      regalloc.VRegIDNonReservedBegin,
 		argResultInts:   argResultInts,
 		argResultFloats: argResultFloats,
@@ -274,22 +273,9 @@ func (c *compiler) Init() {
 	c.mach.Reset()
 	c.varEdges = c.varEdges[:0]
 	c.constEdges = c.constEdges[:0]
-	c.ssaValueToVRegs = c.ssaValueToVRegs[:0]
-	c.ssaValuesInfo = c.ssaValuesInfo[:0]
-	c.returnVRegs = c.returnVRegs[:0]
-	c.varEdges = c.varEdges[:0]
-	c.varEdgeTypes = c.varEdgeTypes[:0]
-	c.constEdges = c.constEdges[:0]
-	c.vRegSet = c.vRegSet[:0]
-	c.vRegIDs = c.vRegIDs[:0]
-	c.tempRegs = c.tempRegs[:0]
-	c.tmpVals = c.tmpVals[:0]
-	c.ssaTypeOfVRegID = c.ssaTypeOfVRegID[:0]
 	c.buf = c.buf[:0]
-	c.abis = c.abis[:0]
-	// important! relocations & sourceOffsets must be nil and canot have a 0 length slice reused.
-	c.relocations = nil
-	c.sourceOffsets = nil
+	c.sourceOffsets = c.sourceOffsets[:0]
+	c.relocations = c.relocations[:0]
 }
 
 // ValueDefinition implements Compiler.ValueDefinition.
